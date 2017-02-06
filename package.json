@@ -1,0 +1,19 @@
+{
+  "name": "inventario",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "webpack -d && electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.1",
+    "electron": "^1.4.15"
+  },
+  "devDependencies": {
+    "webpack": "^2.2.1"
+  }
+}
