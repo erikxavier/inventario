@@ -1,0 +1,17 @@
+  <div class="row">
+    <table class="table table-hover table-condensed table-striped">
+        <tr>
+            <th>Item</th>
+            <th class="text-center"># Quantidade</th>     
+            <th class="text-right">Opções</th>
+        </tr>
+        <tr ng-class="{success: vm.activeItem == item}" ng-repeat="item in vm.lista" ng-click="vm.activateItem(item)">
+            <td>{{item.nome}}</td>
+            <td class="text-center">{{item.quantidade}}</td>
+            <td class="text-right">
+                <button class="button" ng-click="vm.addItem(item)"><span class="glyphicon glyphicon-plus"></span></button>
+                <button class="button" ng-click="vm.removeItem(item)"><span class="glyphicon glyphicon-minus"></span></button>
+            </td>
+        </tr>
+    </table>
+</div>

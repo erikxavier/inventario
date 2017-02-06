@@ -5,10 +5,10 @@ var webpack = require('webpack');
 
 // define Webpack configuration object to be exported
 var config = {
-    context: __dirname + '/js',
+    context: __dirname + '/app',
     entry: './app.js',
     output: {
-        path: __dirname + '/js',
+        path: __dirname + '/app',
         filename: 'bundle.js'        
     },
     resolve: {

@@ -1,13 +1,27 @@
 <html ng-app="app">
 <head>
     <meta charset="UTF-8">
-    <title>Inventário</title>
-    <!--Scripts-->
-    <script src="js/bundle.js"></script>    
-</head>
-<body ng-controller="InventarioController as vm">
-    <h1>Teste:</h1>
-    <h2>{{ vm.teste }}</h2>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    <title>Inventário</title>
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/bootstrap.min.css">
+    <!--Scripts-->
+    <script src="app/bundle.js"></script>    
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <ul class="nav nav-tabs nav-justified">
+                <li ui-sref-active="active" role="presentation"><a ui-sref="lista">Inventário</a></li>
+                <li ui-sref-active="active" role="presentation"><a ui-sref="entradas">Entradas</a></li>
+                <li ui-sref-active="active" role="presentation"><a ui-sref="saidas">Saídas</a></li>
+                <li ui-sref-active="active" role="presentation"><a ui-sref="itens">Itens</a></li>                
+            </ul>
+        </div>
+        <div ui-view></div>
+    </div>
 </body>
 </html>
