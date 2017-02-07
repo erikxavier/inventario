@@ -1,39 +1,50 @@
 <h3>Movimentar</h3>
+<div class="row" style="height: 600px;">
+    <div class="col-md-6">
+        <form>
+            <div class="form-group">
+                <label for="data">Data</label>
+                <input ng-model="vm.movimento.data" ng-disabled="!vm.movimento" type="date" class="form-control" id="data">
+            </div>
+            <label>Tipo de movimento</label>
+            <div class="radio">
+                <label class="radio-inline">
+                <input ng-disabled="!vm.movimento" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">Entrada
+            </label>
+                <label class="radio-inline">
+                <input ng-disabled="!vm.movimento" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">Saída
+            </label>
+            </div>
+            <label>Itens</label>
+        </form>
+        <table class="table">
+            <tr>
+                <th>Item</th>
+                <th class="col-md-2">#</th>
+            </tr>
+            <tr ng-repeat="item in vm.movimento.lista">
+                <td>{{item}}</td>
+                <td><input type="number" ng-value="item.quantidade" min="1" class="form-control"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-6" style="border-left: 1px dashed;">
+        <label>Adicionar Itens</label>
+        <input type="text" placeholder="procurar" class="form-control" ng-model="searchBox">
+        <div style="height: 400px; overflow-y: scroll;">
+            <table style="height: 200px;" class="table table-hover table-condensed">
+                <tr style="padding-bottom: 0;" ng-click="vm.selectItem(item)" ng-class="{success: vm.selectedItem === item}" ng-repeat="item in vm.itens | filter:searchBox">
+                    <td>{{item}}</td>
+                </tr>
+            </table>
+        </div>
+        <buttom ng-click="vm.adicionaItemLista(vm.selectedItem)" ng-class="{disabled: !vm.selectedItem || !vm.movimento}" class="btn btn-success pull-right">Adicionar</buttom>
+    </div>
+</div>
 <div class="row">
-    <form>
-        <div class="form-group">
-            <label for="data">Data</label>
-            <input type="date" class="form-control" id="data">
-        </div>
-        <label>Tipo de movimento</label>
-        <div class="radio">
-            <label class="radio-inline">
-                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">Entrada
-            </label>
-            <label class="radio-inline">
-                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">Saída
-            </label>
-        </div>
-        <label>Itens</label>
-    </form>
-    <table class="table">
-        <tr>
-            <th>Item</th>
-            <th>#</th>
-        </tr>
-        <tr>
-            <td>
-                <select class="form-control">
-                    <option value="saab">HD Sata</option>
-                    <option value="mercedes">Memória DDR3</option>
-                    <option value="audi">Mouse Optico USB</option>
-                </select>
-            </td>
-            <td><input type="number" value="1" min="1" class="form-control"></td>
-        </tr>
-    </table>    
     <div class="btn-group pull-right">
-        <button class="btn-primary btn">Adicionar Item</button>
-        <button class="btn btn-success">Finalizar</button>
+        <button ng-click="vm.novoMovimento()" class="btn-primary btn">Criar Novo</button>         
+        <button ng-disabled="!vm.movimento" class="btn-danger btn">Cancelar</button>       
+        <button ng-disabled="!vm.movimento" class="btn btn-success">Salvar</button>
     </div>
 </div>
