@@ -7,15 +7,20 @@
     <meta name="author" content="">
 
     <title>Inventário</title>
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap-select.min.css">
     <!--Scripts-->
-    <script src="app/bundle.js"></script>    
+    <script src="app/bundle.js"></script>  
+    <script src="vendor/jquery-3.1.1.min.js"></script>     
+    <script src="vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="vendor/bootstrap-select.min.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="row">
             <ul class="nav nav-tabs nav-justified">
                 <li ui-sref-active="active" role="presentation"><a ui-sref="lista">Inventário</a></li>
+                <li ui-sref-active="active" role="presentation"><a ui-sref="movimentar">Movimentar</a></li>                
                 <li ui-sref-active="active" role="presentation"><a ui-sref="entradas">Entradas</a></li>
                 <li ui-sref-active="active" role="presentation"><a ui-sref="saidas">Saídas</a></li>
                 <li ui-sref-active="active" role="presentation"><a ui-sref="itens">Itens</a></li>                

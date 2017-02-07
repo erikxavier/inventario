@@ -1,23 +1,29 @@
 <h3>Entradas</h3>
+<!--Lista de entradas-->
 <div class="row">
     <table class="table table-hover table-condensed table-striped">
         <tr>
             <th>Data</th>
         </tr>
-        <tr ng-click="expand = !expand">
+        <tr ng-class="{success: registro.expand}" ng-repeat="registro in vm.entradas" ng-click="registro.expand = !registro.expand">
             <td>
-                06/02/2017<a class="pull-right"><span class="glyphicon glyphicon-list"></span></a>
-                <table ng-if="expand" class="table table-condensed table-striped table-bordered">
+                {{registro.data}}<a class="pull-right"><span class="glyphicon glyphicon-list"></span></a>
+                <table ng-if="registro.expand" class="table table-condensed table-striped table-bordered">
                     <tr>
                         <th>Item</th>
                         <th>#</th>
                     </tr>
-                    <tr>
-                        <td>HD Sata</td>
-                        <td>3</td>
+                    <tr ng-repeat="item in registro.lista">
+                        <td>{{item.nome}}</td>
+                        <td>{{item.quantidade}}</td>
                     </tr>
                 </table>
             </td>
         </tr>
     </table>
+</div>
+<div class="row">
+    <div class="btn-group pull-right">
+        <button class="btn-primary btn">Adicionar Entrada</button>
+    </div>
 </div>

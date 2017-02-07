@@ -1,0 +1,39 @@
+<h3>Movimentar</h3>
+<div class="row">
+    <form>
+        <div class="form-group">
+            <label for="data">Data</label>
+            <input type="date" class="form-control" id="data">
+        </div>
+        <label>Tipo de movimento</label>
+        <div class="radio">
+            <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">Entrada
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">Saída
+            </label>
+        </div>
+        <label>Itens</label>
+    </form>
+    <table class="table">
+        <tr>
+            <th>Item</th>
+            <th>#</th>
+        </tr>
+        <tr>
+            <td>
+                <select class="form-control">
+                    <option value="saab">HD Sata</option>
+                    <option value="mercedes">Memória DDR3</option>
+                    <option value="audi">Mouse Optico USB</option>
+                </select>
+            </td>
+            <td><input type="number" value="1" min="1" class="form-control"></td>
+        </tr>
+    </table>    
+    <div class="btn-group pull-right">
+        <button class="btn-primary btn">Adicionar Item</button>
+        <button class="btn btn-success">Finalizar</button>
+    </div>
+</div>

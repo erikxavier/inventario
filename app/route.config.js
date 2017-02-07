@@ -24,7 +24,13 @@ function RouteConfig($stateProvider, $urlRouterProvider) {
             templateUrl: 'app/saidas/view-saidas.html',
             controller: require('./saidas/saidas.controller'),
             controllerAs: 'vm'
-        })         
+        })  
+        .state('movimentar', {
+            url:'/movimentar',
+            templateUrl: 'app/movimentar/view-movimentar.html',
+            controller: require('./movimentar/movimentar.controller'),
+            controllerAs: 'vm'
+        })                 
         .state('itens', {
             url:'/itens',
             templateUrl: 'app/itens/view-itens.html',
