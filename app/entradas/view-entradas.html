@@ -1,16 +1,36 @@
-<h3>Entradas</h3>
 <!--Lista de entradas-->
+<div class="row">
+    <h3>Entradas</h3>
+        <div class="form-group col-md-8">
+            <label for="pesquisa">Pesquisar</label>
+            <input type="text" placeholder="Pesquisar" class="form-control">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="data-inicio">Desde</label>
+            <input type="date" id="data-inicio" class="form-control">
+        </div>
+        <div class="form-group col-md-2">    
+            <label for="data-fim">Até</label>
+            <input type="date" id="data-fim" class="form-control">
+        </div>                
+</div>
 <div class="row">
     <table class="table table-hover table-condensed table-striped">
         <tr>
             <th>Data</th>
         </tr>
-        <tr ng-class="{success: registro.expand}" ng-repeat="registro in vm.entradas" ng-click="registro.expand = !registro.expand">
+        <tr ng-class="{success: registro.expand}" ng-repeat="registro in vm.entradas | orderBy: '-data'" ng-click="registro.expand = !registro.expand">
             <td>
-                {{registro.data}}<a class="pull-right"><span class="glyphicon glyphicon-list"></span></a>
-                <table ng-if="registro.expand" class="table table-condensed table-striped table-bordered">
+                {{registro.data.toLocaleDateString()}}<a class="pull-right"><span class="glyphicon glyphicon-list"></span></a>
+                <table ng-if="registro.expand" class="table table-condensed table-striped table-bordered table-hover">
                     <tr>
-                        <th>Item</th>
+                        <th class="text-center info">Relatório</th>
+                    </tr>
+                    <tr>
+                        <td>{{registro.relatorio}}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center info">Itens</th>
                         <th>#</th>
                     </tr>
                     <tr ng-repeat="item in registro.lista">

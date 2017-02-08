@@ -12,7 +12,8 @@
   "dependencies": {
     "angular": "^1.6.1",
     "angular-ui-router": "^0.4.2",
-    "electron": "^1.4.15"
+    "electron": "^1.4.15",
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "webpack": "^2.2.1"

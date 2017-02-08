@@ -9,11 +9,16 @@
             <label>Tipo de movimento</label>
             <div class="radio">
                 <label class="radio-inline">
-                <input ng-disabled="!vm.movimento" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">Entrada
+                <input ng-model="vm.movimento.tipo" value="E" ng-disabled="!vm.movimento" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">Entrada
             </label>
                 <label class="radio-inline">
-                <input ng-disabled="!vm.movimento" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">Saída
+                <input ng-model="vm.movimento.tipo" value="S" ng-disabled="!vm.movimento" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">Saída
             </label>
+            </div>
+            <div class="form-group">
+                <label for="relatorio">Relatório</label>
+                <textarea ng-model="vm.movimento.relatorio" ng-disabled="!vm.movimento" class="form-control" name="relatorio" id="relatorio" rows="3"></textarea>
+                <span class="help-block">Detalhes do movimento</span>
             </div>
             <label>Itens</label>
         </form>
@@ -23,14 +28,14 @@
                 <th class="col-md-2">#</th>
             </tr>
             <tr ng-repeat="item in vm.movimento.lista">
-                <td>{{item}}</td>
-                <td><input type="number" ng-value="item.quantidade" min="1" class="form-control"></td>
+                <td>{{item.nome}}</td>
+                <td><input type="number" ng-model="item.quantidade" min="1" class="form-control"></td>
             </tr>
         </table>
     </div>
     <div class="col-md-6" style="border-left: 1px dashed;">
         <label>Adicionar Itens</label>
-        <input type="text" placeholder="procurar" class="form-control" ng-model="searchBox">
+        <input ng-change="vm.selectItem()" type="text" placeholder="procurar" class="form-control" ng-model="searchBox">
         <div style="height: 400px; overflow-y: scroll;">
             <table style="height: 200px;" class="table table-hover table-condensed">
                 <tr style="padding-bottom: 0;" ng-click="vm.selectItem(item)" ng-class="{success: vm.selectedItem === item}" ng-repeat="item in vm.itens | filter:searchBox">
@@ -45,6 +50,6 @@
     <div class="btn-group pull-right">
         <button ng-click="vm.novoMovimento()" class="btn-primary btn">Criar Novo</button>         
         <button ng-disabled="!vm.movimento" class="btn-danger btn">Cancelar</button>       
-        <button ng-disabled="!vm.movimento" class="btn btn-success">Salvar</button>
+        <button ng-click="vm.salvarMovimento()" ng-disabled="!vm.movimento" class="btn btn-success">Salvar</button>
     </div>
 </div>
