@@ -34,7 +34,13 @@ function MovimentarController(InventarioService) {
 
     vm.salvarMovimento = function() {
         vm.movimento.data = new Date(vm.movimento.data)
+        console.log(vm.movimento)
         InventarioService.saveMovimento(vm.movimento)
-        vm.movimento = null;
+            .then((newMov) => {
+                console.log('movimento salvo com sucesso'+newMov)
+                vm.movimento = null;
+            })
+            .catch((err) => console.log(err))
+        
     }
 }

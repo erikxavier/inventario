@@ -9,7 +9,11 @@ let win
 function createWindow() {
     
     //Cria a janela
-    win = new BrowserWindow({width: 1024, height:768})
+    win = new BrowserWindow({
+        width: 1024, 
+        height:768,
+        autoHideMenuBar: true,
+    })
 
     //Carrega o index.html no app
     win.loadURL(url.format({

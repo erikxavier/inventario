@@ -4,5 +4,6 @@ EntradasController.$inject = ['InventarioService']
 function EntradasController(InventarioService) {
     vm = this;
 
-    vm.entradas = InventarioService.getEntradas();
+    InventarioService.getEntradas()
+        .then((entradas) => vm.entradas = entradas)
 }

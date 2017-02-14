@@ -7,7 +7,8 @@ var webpack = require('webpack');
 var config = {
     context: __dirname + '/app',
     entry: './app.js',
-    output: {
+    target: 'electron',     
+    output: {       
         path: __dirname + '/app',
         filename: 'bundle.js'        
     },

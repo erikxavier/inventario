@@ -9,10 +9,10 @@
             <label>Tipo de movimento</label>
             <div class="radio">
                 <label class="radio-inline">
-                <input ng-model="vm.movimento.tipo" value="E" ng-disabled="!vm.movimento" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">Entrada
+                <input ng-model="vm.movimento.tipo" value="X" ng-disabled="!vm.movimento" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">Entrada
             </label>
                 <label class="radio-inline">
-                <input ng-model="vm.movimento.tipo" value="S" ng-disabled="!vm.movimento" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">Saída
+                <input ng-model="vm.movimento.tipo" value="A" ng-disabled="!vm.movimento" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">Saída
             </label>
             </div>
             <div class="form-group">
@@ -27,7 +27,7 @@
                 <th>Item</th>
                 <th class="col-md-2">#</th>
             </tr>
-            <tr ng-repeat="item in vm.movimento.lista">
+            <tr ng-repeat="item in vm.movimento.lista track by $index">
                 <td>{{item.nome}}</td>
                 <td><input type="number" ng-model="item.quantidade" min="1" class="form-control"></td>
             </tr>

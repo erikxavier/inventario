@@ -1,21 +1,30 @@
 {
   "name": "inventario",
   "version": "1.0.0",
-  "description": "",
+  "description": "Aplicação para controle de invnetário, com estoque, entradas e saídas",
   "main": "main.js",
+  "build": {
+    "appId": "exam.inventario",
+    "mac.category": "public.app-category.productivity"
+  },
   "scripts": {
+    "pack": "build --dir",
+    "dist": "build",
     "start": "webpack -d && electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Erik Xavier",
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.1",
     "angular-ui-router": "^0.4.2",
-    "electron": "^1.4.15",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "nedb": "^1.8.0"
   },
   "devDependencies": {
+    "electron": "^1.4.15",
+    "electron-builder": "^13.7.0",
+    "electron-prebuilt": "^1.4.13",
     "webpack": "^2.2.1"
   }
 }
