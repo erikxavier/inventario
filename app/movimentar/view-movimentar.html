@@ -9,10 +9,10 @@
             <label>Tipo de movimento</label>
             <div class="radio">
                 <label class="radio-inline">
-                <input ng-model="vm.movimento.tipo" value="X" ng-disabled="!vm.movimento" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">Entrada
+                <input ng-model="vm.movimento.tipo" value="E" ng-disabled="!vm.movimento" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">Entrada
             </label>
                 <label class="radio-inline">
-                <input ng-model="vm.movimento.tipo" value="A" ng-disabled="!vm.movimento" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">Saída
+                <input ng-model="vm.movimento.tipo" value="S" ng-disabled="!vm.movimento" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">Saída
             </label>
             </div>
             <div class="form-group">
@@ -43,7 +43,10 @@
                 </tr>
             </table>
         </div>
-        <buttom ng-click="vm.adicionaItemLista(vm.selectedItem)" ng-class="{disabled: !vm.selectedItem || !vm.movimento}" class="btn btn-success pull-right">Adicionar</buttom>
+        <div class="row pull-right">   
+            <buttom ng-click="vm.adicionaItemLista(vm.selectedItem)" ng-class="{disabled: !vm.selectedItem || !vm.movimento}" class="btn btn-success">Adicionar</buttom>
+            <buttom ng-click="vm.criaItem(searchBox)" ng-class="{disabled: !searchBox || !vm.movimento}" class="btn btn-success">Criar e Adicionar</buttom>
+         </div>
     </div>
 </div>
 <div class="row">

@@ -4,19 +4,7 @@ InventarioService.$inject = []
 
 function InventarioService() {
     var Movimentos = require('../database/models/movimentos')
-    var movimentos = []
-    movimentos.push({
-        data: new Date(),
-        tipo: 'E',
-        relatorio: "Descrição",
-        lista: [
-            { nome: "HD", quantidade: "5" },
-            { nome: "Memoria DDR3", quantidade: "8" },
-            { nome: "Fonte ATX", quantidade: "20" },
-            { nome: "Cabo USB A/B", quantidade: "6" },
-            { nome: "Mouse", quantidade: "3" }
-        ]
-    })
+    var Itens = require('../database/models/itens')
 
     function getListaInventario() {
         return [
@@ -29,7 +17,7 @@ function InventarioService() {
     }
 
     function getEntradas() {
-        return Movimentos.getAll()
+        return Movimentos.getEntradas()
     }
 
     function getSaidas() {
@@ -39,6 +27,10 @@ function InventarioService() {
     function getMovimentos() {
         return Movimentos.getAll()
     }
+
+    function criaItem(nome) {
+        return Itens.insert({nome: nome, quantidade: 0})
+    }
     
     function saveMovimento(movimento) {
         return Movimentos.insert(movimento)
@@ -47,6 +39,7 @@ function InventarioService() {
     return {
         getListaInventario,
         getEntradas,
-        saveMovimento
+        saveMovimento,
+        criaItem
     }
 }

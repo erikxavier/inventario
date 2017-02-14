@@ -19,5 +19,6 @@ function insert(item) {
     })
 }
 module.exports = {
-
+    getAll,
+    insert
 }
